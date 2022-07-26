@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./estilos/style.css">
+</head>
+<body>
+    <div class="lista">
+        <h1>Lista de Tareas</h1>
+        <form class="formulario">
+
+            <input type="text" id="textoTarea" class="borde input" placeholder="Nueva Tarea" autocomplete="off">
+            <button type="submit" class="botonAgregar" id="añadirTareas">+</button>
+            <button type="button" class="borde botonOrdenar" id="ordenarTareas">Ordenar</button>
+
+        </form>
+
+        <div id="contenedorTareas"></div>
+    </div>
+
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
