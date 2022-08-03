@@ -4,24 +4,44 @@ const añadirTareas = document.querySelector("#añadirTareas");
 
 const ordenarTareas = document.querySelector("#ordenarTareas");
 
+let textoTarea = document.querySelector("#textoTarea");
 
 añadirTareas.addEventListener("click", (e)=>{
-    event.preventDefault();
-    const textoTarea = document.querySelector("#textoTarea");
+    e.preventDefault();
+    
     if(textoTarea.value == ""){
         alert("no se escribio ninguna tarea");
     }else {
-        const tarea = document.createElement("div");
+        let tarea = document.createElement("div");
         tarea.classList.add("tarea","borde");
         tarea.addEventListener("click", cambiarEstado);
         tarea.textContent = textoTarea.value;
         contenedorTareas.prepend(tarea);
+        guardarStorage();
         textoTarea.value = "";
     }
 });
 
+let listadoTareas = [];
+
+const guardarStorage = (tarea) => {
+
+    if(tarea !== null){
+        listadoTareas.push(textoTarea.value);
+        let echoOporhacer = contenedorTareas.childNodes.forEach( el => {
+            el.classList.contains("echo") ?  estado = "Echo": estado = "Por Hacer";
+        })
+        
+        localStorage.setItem(listadoTareas,estado);
+        
+    }
+};
+
+
 const cambiarEstado = event => {
     event.target.classList.toggle("echo");
+    guardarStorage();
+
 };
 
 const ordenar = () => {
@@ -37,3 +57,6 @@ const ordenar = () => {
 ordenarTareas.addEventListener("click", ()=> {
     ordenar().forEach(el => contenedorTareas.appendChild(el));
 });
+
+
+
