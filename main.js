@@ -10,7 +10,14 @@ añadirTareas.addEventListener("click", (e)=>{
     e.preventDefault();
     
     if(textoTarea.value == ""){
-        alert("no se escribio ninguna tarea");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se escribio ninguna tarea',
+            timer: 2000,
+            confirmButtonColor: '#DF7861'
+
+          })
     }else {
         let tarea = document.createElement("div");
         tarea.classList.add("tarea","borde");
